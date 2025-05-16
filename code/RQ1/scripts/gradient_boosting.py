@@ -48,7 +48,7 @@ splits = list(kfold.split(X, df['categoria_rating']))
 random_search = RandomizedSearchCV(
     clf,
     param_distributions = params,
-    n_iter = n_iter,
+    n_iter = 300,
     scoring = 'neg_root_mean_squared_error',
     cv = splits,
     random_state = 42,
