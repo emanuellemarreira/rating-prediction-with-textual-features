@@ -64,6 +64,8 @@ random_search.fit(X, y)
 
 best_params = random_search.best_params_
 print(f'Melhores parâmetros: {best_params}')
+with open(f'{save_path}/{clf.__class__.__name__}_best_params.txt', 'w') as f:
+    f.write(f'Melhores parâmetros: {best_params}')
 
 def calculate_metrics(y_pred, y_test):
       report = metrics.classification_report(y_test, y_pred, target_names=list(map(str, [1,2,3,4,5])), output_dict=True)
