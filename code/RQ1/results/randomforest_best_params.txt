@@ -1,0 +1,1 @@
+Melhores parâmetros: {'random_state': None, 'n_estimators': 300, 'min_samples_split': 10, 'min_samples_leaf': 2, 'min_impurity_decrease': 0.0, 'max_leaf_nodes': None, 'max_features': 0.5, 'max_depth': 30, 'class_weight': 'balanced_subsample'}

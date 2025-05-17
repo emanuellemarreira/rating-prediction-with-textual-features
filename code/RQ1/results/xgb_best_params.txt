@@ -1,0 +1,1 @@
+Melhores parâmetros: {'subsample': 0.8, 'reg_lambda': 1, 'reg_alpha': 0, 'n_estimators': 500, 'min_child_weight': 1, 'max_depth': 10, 'learning_rate': 0.05, 'gamma': 0.0, 'colsample_bytree': 0.6}
