@@ -59,6 +59,7 @@ class TrainModel:
             df_train.drop(df_train[df_train["categoria"] != self.category].index, inplace=True)
             df_test.drop(df_test[df_test["categoria"] != self.category].index, inplace=True)
             df = pd.concat([df_train, df_test])
+            df['categoria_rating'] = df['categoria'].astype(str) + "_" + df['rating'].astype(str)
             drop = ['categoria','text','rating','categoria_rating']
             X = df.drop(columns=drop)
             print(f"{self.category}: {X.shape}")
