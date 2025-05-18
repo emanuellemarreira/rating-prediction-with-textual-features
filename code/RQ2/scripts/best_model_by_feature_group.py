@@ -1,16 +1,18 @@
 from train_model import TrainModel
-from sklearn.ensemble import GradientBoostingClassifier
+from xgboost import XGBClassifier
 
-clf = GradientBoostingClassifier()
+clf = XGBClassifier()
 
-params = {
-    "n_estimators": [100, 200, 300, 500, 1000],
-    "learning_rate": [0.001, 0.01, 0.05, 0.1],
-    "max_depth": [3, 5, 10],
-    "min_samples_split": [5, 10, 15],
-    "min_samples_leaf": [1, 2, 4],
-    "max_features": ["sqrt", "log2", 0.5, None],
-    "random_state": [42]
+params =  {
+ "n_estimators": [100, 200, 300, 500],
+ "learning_rate": [0.05, 0.10, 0.20],
+ "max_depth": [6, 8, 10],
+ "min_child_weight": [1, 3, 5],
+ "gamma": [0.0, 0.1, 0.3],
+ "subsample": [0.6, 0.8, 1.0],
+ "colsample_bytree": [0.4, 0.6, 0.8],
+ "reg_alpha": [0, 0.1, 1],
+ "reg_lambda": [1, 1.5, 2]
 }
 
 groups = ['conc', 'lex', 'pos', 'sbj', 'str', 'synt','twt']
