@@ -1,4 +1,4 @@
-from train_model import TrainModel
+from code.train_model import TrainModel
 from sklearn.linear_model import LogisticRegression
 
 clf =  LogisticRegression()

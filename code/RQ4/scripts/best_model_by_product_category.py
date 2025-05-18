@@ -1,7 +1,4 @@
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from train_model import TrainModel
+from code.train_model import TrainModel
 from xgboost import XGBClassifier
 
 clf = XGBClassifier()

@@ -10,7 +10,13 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
 nltk.download('stopwords')
 import scipy.stats as stats
-from config import DIR_TRAIN, DIR_TEST, SAVE_PATH
+import os
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'))
+DATASET_DIR = os.path.join(PROJECT_ROOT, 'dataset')
+DIR_TRAIN = os.path.join(DATASET_DIR, 'train.csv')
+DIR_TEST = os.path.join(DATASET_DIR, 'test.csv')
+SAVE_PATH = os.path.join(PROJECT_ROOT, 'code') 
 
 class TrainModel:
     def __init__(self, model, params, rq, 
@@ -22,6 +28,9 @@ class TrainModel:
                  dir_train = DIR_TRAIN,
                  dir_test = DIR_TEST,
                  save_path = SAVE_PATH,
+                 #dir_train = '../../../dataset/train.csv',
+                 #dir_test = '../../../dataset/test.csv',
+                 #save_path = '../../../code',
                  ablation = False,
                  using_tfidf = False,
                  ):

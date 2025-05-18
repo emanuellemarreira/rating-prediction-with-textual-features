@@ -1,4 +1,4 @@
-from train_model import TrainModel
+from code.train_model import TrainModel
 from xgboost import XGBClassifier
 
 clf = XGBClassifier()
