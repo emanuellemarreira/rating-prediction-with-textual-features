@@ -22,6 +22,7 @@ model_auto = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='auto',
 )
 
@@ -31,6 +32,7 @@ model_baby = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='baby',
 )
 
@@ -38,6 +40,7 @@ model_celular = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='celular',
 )
 
@@ -47,6 +50,7 @@ model_food = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='food',
 )
 model_food.train()
@@ -55,6 +59,7 @@ model_games = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='games',
 )
 model_games.train()
@@ -63,6 +68,7 @@ model_laptops = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='laptops',
 )
 model_laptops.train()
@@ -71,6 +77,7 @@ model_livros = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='livros',
 )
 model_livros.train()
@@ -79,6 +86,7 @@ model_moda = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='moda',
 )
 model_moda.train()
@@ -87,6 +95,7 @@ model_pets = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='pets',
 )
 model_pets.train()
@@ -95,6 +104,7 @@ model_toys = TrainModel(
     model=clf,
     params=params,
     rq='RQ4',
+    classes=[0,1,2,3,4],
     category='toys',
 )
 model_toys.train()

@@ -21,6 +21,7 @@ model_conc = TrainModel(
     model = clf,
     params = params,
     rq = 'RQ2',
+    classes=[0,1,2,3,4],
     group = 'conc'
 )
 
@@ -30,6 +31,7 @@ model_lex = TrainModel(
     model = clf,
     params = params,
     rq = 'RQ2',
+    classes=[0,1,2,3,4],
     group = 'lex'
 )
 
@@ -39,6 +41,7 @@ model_pos = TrainModel(
     model = clf,
     params = params,
     rq = 'RQ2',
+    classes=[0,1,2,3,4],
     group = 'pos'
 )
 
@@ -48,6 +51,7 @@ model_sbj = TrainModel(
     model = clf,
     params = params,
     rq = 'RQ2',
+    classes=[0,1,2,3,4],
     group = 'sbj'
 )
 
@@ -57,6 +61,7 @@ model_str = TrainModel(
     model = clf,
     params = params,
     rq = 'RQ2',
+    classes=[0,1,2,3,4],
     group = 'str'
 )
 
@@ -64,6 +69,7 @@ model_synt = TrainModel(
     model = clf,
     params = params,
     rq = 'RQ2',
+    classes=[0,1,2,3,4],
     group = 'synt'
 )
 
@@ -73,6 +79,7 @@ model_twt = TrainModel(
     model = clf,
     params = params,
     rq = 'RQ2',
+    classes=[0,1,2,3,4],
     group = 'twt'
 )
 
