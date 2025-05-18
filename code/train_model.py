@@ -10,6 +10,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import nltk
 nltk.download('stopwords')
 import scipy.stats as stats
+from config import DIR_TRAIN, DIR_TEST, SAVE_PATH
 
 class TrainModel:
     def __init__(self, model, params, rq, 
@@ -18,9 +19,9 @@ class TrainModel:
                  classes = [1,2,3,4,5], 
                  n_iter = 300, 
                  n_splits = 5,
-                 dir_train = '../../../dataset/train.csv',
-                 dir_test = '../../../dataset/test.csv',
-                 save_path = '../../../code',
+                 dir_train = DIR_TRAIN,
+                 dir_test = DIR_TEST,
+                 save_path = SAVE_PATH,
                  ablation = False,
                  using_tfidf = False,
                  ):
@@ -45,6 +46,8 @@ class TrainModel:
         df['categoria_rating'] = df['categoria'].astype(str) + "_" + df['rating'].astype(str)
         if self.classes == [0,1,2,3,4]:
             df['rating'] = df['rating'] - 1
+            df_train['rating'] = df_train['rating'] - 1
+            df_test['rating'] = df_test['rating'] - 1
         if self.group != 'all' and not self.ablation:    
             drop = [column for column in df.columns if not column.startswith(self.group)]
             drop.extend(['categoria','text','rating','categoria_rating'])
@@ -60,7 +63,6 @@ class TrainModel:
             df_test.drop(df_test[df_test["categoria"] != self.category].index, inplace=True)
             df = pd.concat([df_train, df_test])
             df['categoria_rating'] = df['categoria'].astype(str) + "_" + df['rating'].astype(str)
-            df['rating'] = df['rating'] - 1
             drop = ['categoria','text','rating','categoria_rating']
             X = df.drop(columns=drop)
             print(f"{self.category}: {X.shape}")
