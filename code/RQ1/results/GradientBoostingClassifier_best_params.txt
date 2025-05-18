@@ -1,0 +1,1 @@
+{'random_state': 42, 'n_estimators': 1000, 'min_samples_split': 10, 'min_samples_leaf': 1, 'max_features': None, 'max_depth': 10, 'learning_rate': 0.05}
