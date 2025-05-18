@@ -1,13 +1,15 @@
+from sklearnex import patch_sklearn
+patch_sklearn()
 import pandas as pd
 import numpy as np
 from sklearn import metrics
 from sklearn.metrics import confusion_matrix, classification_report
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 from sklearn.metrics import mean_squared_error, mean_absolute_error, roc_auc_score
+from sklearn.feature_extraction.text import TfidfVectorizer
+import nltk
+nltk.download('stopwords')
 import scipy.stats as stats
-
-from sklearnex import patch_sklearn
-patch_sklearn()
 
 class TrainModel:
     def __init__(self, model, params, rq, 
@@ -19,7 +21,8 @@ class TrainModel:
                  dir_train = '../../../dataset/train.csv',
                  dir_test = '../../../dataset/test.csv',
                  save_path = '../../../code',
-                 ablation = False
+                 ablation = False,
+                 using_tfidf = False,
                  ):
         self.clf = model
         self.params = params
@@ -33,6 +36,7 @@ class TrainModel:
         self.n_splits = n_splits
         self.ablation = ablation
         self.category = category
+        self.using_tfidf = using_tfidf
     
     def train_test_split(self):
         df_train = pd.read_csv(self.dir_train)
@@ -58,6 +62,15 @@ class TrainModel:
             drop = ['categoria','text','rating','categoria_rating']
             X = df.drop(columns=drop)
             print(f"{self.category}: {X.shape}")
+        elif self.using_tfidf:
+            tfidf = TfidfVectorizer(
+                        min_df=5,
+                        encoding='utf-8',
+                        ngram_range=(1, 2),
+                        lowercase=True,
+                        stop_words=nltk.corpus.stopwords.words('portuguese')
+                    )
+            X = tfidf.fit_transform(df.text.values.astype('U')).toarray()
         else:
             X = df.drop(columns=['categoria','text','rating','categoria_rating'])
         y = df['rating']
@@ -174,6 +187,9 @@ class TrainModel:
         elif self.category != 'all':
             with open(f"{self.save_path}/categoria_{self.category}_{self.clf.__class__.__name__}_best_params.txt", 'w') as f:
                 f.write(str(best_params))
+        elif self.using_tfidf:
+            with open(f"{self.save_path}/{self.clf.__class__.__name__}_tfidf_best_params.txt", 'w') as f:
+                f.write(str(best_params))
         else:
             with open(f"{self.save_path}/{self.clf.__class__.__name__}_best_params.txt", 'w') as f:
                 f.write(str(best_params))
@@ -184,5 +200,7 @@ class TrainModel:
             results.to_csv(f'{self.save_path}/ablation_{self.clf.__class__.__name__}_all_except_{self.group}_results.csv')
         elif self.category != 'all':
             results.to_csv(f'{self.save_path}/categoria_{self.category}_{self.clf.__class__.__name__}_results.csv')
+        elif self.using_tfidf:
+            results.to_csv(f'{self.save_path}/{self.clf.__class__.__name__}_tfidf_results.csv')
         else:
             results.to_csv(f'{self.save_path}/{self.clf.__class__.__name__}_results.csv')
