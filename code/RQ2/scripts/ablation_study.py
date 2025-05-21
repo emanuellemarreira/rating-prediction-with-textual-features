@@ -20,6 +20,7 @@ model_all_except_conc = TrainModel(
     params = params,
     rq = 'RQ2',
     group = 'conc',
+    classes = [0,1,2,3,4], 
     ablation = True
 )
 
@@ -30,6 +31,7 @@ model_all_except_lex = TrainModel(
     params = params,
     rq = 'RQ2',
     group = 'lex',
+    classes = [0,1,2,3,4], 
     ablation = True
 )
 
@@ -40,6 +42,7 @@ model_all_except_pos = TrainModel(
     params = params,
     rq = 'RQ2',
     group = 'pos',
+    classes = [0,1,2,3,4], 
     ablation = True
 )
 
@@ -50,6 +53,7 @@ model_all_except_sbj = TrainModel(
     params = params,
     rq = 'RQ2',
     group = 'sbj',
+    classes = [0,1,2,3,4], 
     ablation = True
 )
 
@@ -60,6 +64,7 @@ model_all_except_str = TrainModel(
     params = params,
     rq = 'RQ2',
     group = 'str',
+    classes = [0,1,2,3,4], 
     ablation = True
 )
 
@@ -70,6 +75,7 @@ model_all_except_synt = TrainModel(
     params = params,
     rq = 'RQ2',
     group = 'synt',
+    classes = [0,1,2,3,4], 
     ablation = True
 )
 
@@ -80,6 +86,7 @@ model_all_except_twt = TrainModel(
     params = params,
     rq = 'RQ2',
     group = 'twt',
+    classes = [0,1,2,3,4], 
     ablation = True
 )
 
