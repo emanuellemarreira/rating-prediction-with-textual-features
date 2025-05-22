@@ -2,6 +2,6 @@
 
 ```bash
 conda env create -f environment.yml
-conda activate nome-do-ambiente
+conda activate rating-prediction
 ```
 
