@@ -41,7 +41,11 @@ conda activate rating-prediction
 ```
 ### 3. Descompactar o dataset
 
-### 4. Feature Extraction (resolver)
+### 4. Feature Extraction 
+
+Há uma incompatibilidade com uma biblioteca utilizada no processo de extração, que atualmente funciona apenas em ambientes Linux e Google Colab. Assim, para executar o código de extração de features corretamente, você pode:
+- Utilizar o Google Colab e fazer o upload do conteúdo da pasta code/feature_extraction juntamente com o dataset original
+- Executar em uma máquina com sistema Linux (caminho: code/feature_extraction/extract_features.ipynb)
 
 ### 5. Rodar os experimentos (por pergunta de pesquisa)
 ```bash
