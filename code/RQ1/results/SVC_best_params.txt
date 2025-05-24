@@ -1,0 +1,1 @@
+{'kernel': 'linear', 'gamma': 'scale', 'C': 0.1}
