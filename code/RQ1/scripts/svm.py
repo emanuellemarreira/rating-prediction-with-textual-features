@@ -4,9 +4,9 @@ from sklearn.svm import SVC as SVM
 clf = SVM()
 
 params = {
-  'C': [0.01, 0.1, 1, 10],
+  'C': [0.01, 0.1],
   'kernel': ['linear', 'rbf'],
-  'gamma': ['scale', 'auto', 0.01, 0.1, 1]
+  'gamma': ['scale', 'auto', 0.01, 0.1]
 }
 
 model = TrainModel(
