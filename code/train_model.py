@@ -77,7 +77,8 @@ class TrainModel:
             print(f"{self.category}: {X.shape}")
         elif self.using_tfidf:
             tfidf = TfidfVectorizer(
-                        min_df=5,
+                        min_df=20,
+                        max_df=0.8,
                         encoding='utf-8',
                         ngram_range=(1, 2),
                         lowercase=True,
