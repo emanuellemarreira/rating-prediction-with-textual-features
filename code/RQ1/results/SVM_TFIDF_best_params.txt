@@ -1,1 +1,1 @@
-{'kernel': 'poly', 'gamma': 1, 'degree': 5, 'C': 1}
+{'kernel': 'linear', 'gamma': 'scale', 'C': 0.1}
