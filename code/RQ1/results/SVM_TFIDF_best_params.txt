@@ -1,1 +1,0 @@
-{'kernel': 'poly', 'gamma': 1, 'degree': 5, 'C': 1}
